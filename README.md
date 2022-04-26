@@ -42,7 +42,7 @@ python main.py --dataset_name {trainデータセット名} --val_dataset_name　
 
 ## 評価
 ```
-python main.py --eval --dataset_name bdd_val --train_model_path {学習済みモデルが入っているフォルダまでのpath} --batchsize 1
+python main.py --eval --dataset_name {評価対象のデータセット名} --train_model_path {学習済みモデルが入っているフォルダまでのpath} --batchsize 1
 ```
 
 ## 推論
