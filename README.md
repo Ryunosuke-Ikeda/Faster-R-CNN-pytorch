@@ -1,13 +1,13 @@
 # Faster R-CNN for Torchvision
 
-![スクリーンショット (268)](https://user-images.githubusercontent.com/63311737/107151184-95942880-69a4-11eb-9f05-88714c218fa4.png)
+![b1d968b9-563405f4](https://user-images.githubusercontent.com/63311737/165238247-60c27db4-b3d7-46a1-9e31-a8513c4e088f.jpg)
+
 
 ## 環境
 ```
 python 3.6
 CUDA Toolkit 11.1 Update 1
 cuDNN v8.1.1 (Feburary 26th, 2021), for CUDA 11.0,11.1 and 11.2
-NVIDIA RTX3090
 ```
 
 ## 環境構築
