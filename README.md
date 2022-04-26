@@ -14,6 +14,7 @@ python 3.6
 CUDA Toolkit 11.1 Update 1
 cuDNN v8.1.1 (Feburary 26th, 2021), for CUDA 11.0,11.1 and 11.2
 ```
+CUDAやcuDNNの入れ方が分からない方は[こちら](https://qiita.com/ImR0305/items/196429db26abb361c919)をご参照ください
 
 ## 環境構築
 
