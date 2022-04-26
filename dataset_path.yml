@@ -1,0 +1,12 @@
+#テンプレート
+データセット名 :
+  anno : "アノテーションまでのPath"
+  img : "画像までのPath"
+  dataset_type : "データセットのクラスタイプ（dataset_classes.yml でクラス名を記入する名前）"
+
+
+demo :
+  anno : "./dataset/demo/anno"
+  img : "./dataset/demo/img"
+  dataset_type : 'bdd100k'
+

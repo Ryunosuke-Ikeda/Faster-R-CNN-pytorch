@@ -14,7 +14,7 @@ from resnet_backbone import ResNetBackBone
 import yaml
 
 
-def model (dataset_type,model_name,num_head,softmax_temp,backbone_model):
+def model (dataset_type,model_name,backbone_model):
     #モデルの定義
 
 
@@ -25,7 +25,7 @@ def model (dataset_type,model_name,num_head,softmax_temp,backbone_model):
     
     if backbone_model == "mobilenet":
         backbone = torchvision.models.mobilenet_v2(pretrained=True).features
-        backbone.out_channels = 1280#1280
+        backbone.out_channels = 1280
     elif backbone_model ==  "resnet":
         backbone=ResNetBackBone(resnet_type="resnet50")
         backbone.out_channels = 1024

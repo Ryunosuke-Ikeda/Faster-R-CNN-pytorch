@@ -12,19 +12,17 @@ import yaml
 def get_args_parser():
     parser = argparse.ArgumentParser('Set frcnn detector', add_help=False)
     parser.add_argument('--lr', default=0.001, type=float)
-    parser.add_argument('--epochs', default=400, type=int)
+    parser.add_argument('--epochs', default=150, type=int)
     parser.add_argument('--batchsize', default=3, type=int)
-    parser.add_argument('--num_head',default=10,type=int)
-    parser.add_argument('--atten_temp',default='defalt')########'defalt' or float
     parser.add_argument('--backbone',default='mobilenet')
 
     parser.add_argument('--model', default='FRCNN',
-                        help='Choose the models FRCNN or SA-FRCNN or SA-FRCNN_v2 or SA-FRCNN_v3')
-    parser.add_argument('--dataset_name', default='small_bdd',
-                        help='Choose the dataset small_bdd or small_bdd_night bdd_val or hokkaido or test')
+                        help='Choose the models')
+    parser.add_argument('--dataset_name', default='demo',
+                        help='Choose the train dataset ')
 
-    parser.add_argument('--val_dataset_name', default='small_bdd_val',
-                        help='Choose the dataset small_bdd or small_bdd_night bdd_val or hokkaido or test')
+    parser.add_argument('--val_dataset_name', default='demo',
+                        help='Choose the val dataset ')
     parser.add_argument('--output_dir', default='',
                         help='path where to save, empty for no saving')
 
@@ -50,8 +48,6 @@ def main(args):
     batchsize=args.batchsize
     output_dir=args.output_dir
     model_name=args.model
-    num_head=args.num_head
-    softmax_temp=args.atten_temp
     backbone=args.backbone
     
 
@@ -69,14 +65,9 @@ def main(args):
 
 
 
-    #データをロード
-    #dataset_type='4class'
-
     data_ALL=[[anno,img]]
 
-    #evalデータの設定
-    #eva_img='C:/Research/dataset/BDD100K/images/100k/val'
-    #eva_anno='C:/Research/dataset/BDD100K/annotation/val_small_bdd/val'
+
 
     val_dataset_name=args.val_dataset_name
     eva_anno=data_path[val_dataset_name]["anno"]
@@ -93,7 +84,6 @@ def main(args):
     if args.test:
         train_model=args.train_model_path
         img_path=args.img_path
-        #test(dataset_type,train_model,img_path,output_dir)
         test2(dataset_type,train_model,batchsize,img_path,output_dir)
 
         return
@@ -106,15 +96,6 @@ def main(args):
 
 
 
-
-
-
-
-
-
-
-
-
     print("Start training")
     #modelの読み込み
     from model import model
@@ -123,12 +104,11 @@ def main(args):
 
     if train_model=='':
         print('first_train')
-        model=model(dataset_type,model_name,num_head,softmax_temp,backbone)
+        model=model(dataset_type,model_name,backbone)
     else:
         print(f'train_model:{train_model}')
         model=torch.load(train_model)
 
-    #trainer(model,data_ALL,eval_data_ALL,dataset_type,epochs,lr,batchsize,model_name,output_dir)
     trainer(model,data_ALL,eval_data_ALL,dataset_type,args)
 
 

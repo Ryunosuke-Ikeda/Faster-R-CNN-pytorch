@@ -30,7 +30,7 @@ dataset_classes.ymlにdataset_typeに応じたクラス配列を記入する
 
 ## 学習
 ```
-python main.py --dataset_name {trainデータ名} --val_dataset_name　{valデータ名}
+python main.py --dataset_name {trainデータセット名} --val_dataset_name　{valデータ名}
 ```
 
 
@@ -41,7 +41,7 @@ python main.py --eval --dataset_name bdd_val --train_model_path {学習済みモ
 
 ## 推論
 ```
-python main.py --test --train_model_path {学習済みモデルまでのpath} --img_path {推論したい画像フォルダのpath}　--batchsize 1
+python main.py --test --train_model_path {学習済みモデルまでのpath} --img_path {推論したい画像フォルダのpath}　--dataset_name {学習に使ったデータセット名} --batchsize 1
 ```
 
 

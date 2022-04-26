@@ -17,16 +17,6 @@ class ResNetBackBone(nn.Module):
 
 
 
-    仮にResnet50で出力チャネル数1024とした場合の呼び出し方は以下(model.pyの内容)
-
-    #もともとのコード
-    #backbone = torchvision.models.mobilenet_v2(pretrained=True).features
-    #backbone.out_channels = 1280
-
-    #ResNetを呼び出すコード
-    backbone=ResNetBackBone(resnet_type="resnet50")
-    backbone.out_channels = 1024
-
     '''
     def __init__(self, resnet_type="resnet50", pretrained=True):
         super().__init__()
