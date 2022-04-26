@@ -1,0 +1,3 @@
+bdd100k : ['person', 'traffic light', 'train', 'traffic sign', 'rider', 'car', 'bike', 'motor', 'truck', 'bus']
+VOC : ['car', 'bus', 'person', 'bicycle', 'motorbike', 'train']
+4class : ['car', 'person', 'bicycle', 'motorbike']
